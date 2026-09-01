@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Calendar &amp; Schedule — The Full Sweep, TIB Systems</title>
+<meta name="description" content="Full session-by-session schedule, weekly meeting times in US Eastern Time, reading plan, and deliverables calendar for The Full Sweep — TIB Systems' SAP SOX/ITGC training course.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14213D;
+    --ink-2:#1D2E4F;
+    --paper:#F6F2E7;
+    --paper-dim:#EDE6D3;
+    --charcoal:#232323;
+    --stamp:#A63B2E;
+    --stamp-dark:#8A3025;
+    --verified:#3C6E5D;
+    --rule:#CBBFA0;
+    --paper-muted:#5B5647;
+    --ink-muted:rgba(246,242,231,0.72);
+    --serif:'Newsreader', Georgia, serif;
+    --sans:'Public Sans', -apple-system, sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --maxw:1320px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--charcoal);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px;}
+  .mono{font-family:var(--mono);}
+  ::selection{background:var(--stamp); color:var(--paper);}
+  :focus-visible{outline:2px solid var(--stamp); outline-offset:3px;}
+
+  /* Nav */
+  header.site{position:sticky; top:0; z-index:50; background:rgba(246,242,231,0.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--rule);}
+  .navrow{display:flex; align-items:center; justify-content:space-between; padding:7px 22px; max-width:var(--maxw); margin:0 auto;}
+  .brand{display:flex; align-items:baseline; gap:6px; font-family:var(--serif); font-weight:600; font-size:0.86rem;}
+  .brand .dot{color:var(--stamp);}
+  .brand small{font-family:var(--mono); font-weight:400; font-size:0.56rem; color:var(--paper-muted); letter-spacing:0.05em; display:none;}
+  .nav-cta{font-family:var(--sans); font-weight:700; font-size:0.76rem; background:var(--stamp); color:var(--paper); padding:6px 12px; border-radius:2px; text-decoration:none; white-space:nowrap; border:1px solid var(--stamp-dark);}
+  .nav-cta:hover{background:var(--stamp-dark);}
+  @media (min-width:600px){
+    .brand small{display:inline;}
+    .time-row{flex-direction:row; justify-content:space-between; align-items:baseline;}
+    .time-row .time{text-align:right;}
+  }
+
+  /* Page header */
+  .pagehead{background:var(--ink); color:var(--paper); padding:34px 0 36px;}
+  .breadcrumb{font-family:var(--mono); font-size:0.72rem; color:#C99E82; text-decoration:none; display:inline-block; margin-bottom:14px;}
+  .breadcrumb:hover{color:var(--paper);}
+  .pagehead h1{font-family:var(--serif); font-weight:600; font-size:clamp(1.7rem, 5vw, 2.5rem); line-height:1.15; max-width:20ch; margin-bottom:12px;}
+  .pagehead p{color:var(--ink-muted); font-size:1rem; max-width:64ch;}
+
+  section{padding:44px 0;}
+  section.dim{background:var(--paper-dim);}
+  section.on-ink{background:var(--ink); color:var(--paper);}
+  .kicker{font-family:var(--mono); font-size:0.68rem; letter-spacing:0.07em; color:var(--stamp); margin-bottom:10px; display:block;}
+  .on-ink .kicker{color:#D79A85;}
+  h2{font-family:var(--serif); font-weight:600; font-size:clamp(1.4rem, 4vw, 1.9rem); line-height:1.2; letter-spacing:-0.01em; margin-bottom:14px; max-width:36ch;}
+  h3{font-family:var(--serif); font-weight:600; font-size:1.15rem; margin-bottom:8px;}
+  .section-lede{max-width:64ch; color:var(--paper-muted); font-size:0.98rem; margin-bottom:28px;}
+  .on-ink .section-lede{color:var(--ink-muted);}
+
+  /* Timezone callout */
+  .tz-note{
+    background:var(--paper); border:1px solid var(--rule); border-left:3px solid var(--stamp);
+    padding:16px 20px; font-size:0.9rem; color:var(--paper-muted); max-width:760px; margin-bottom:8px;
+  }
+  .tz-note strong{color:var(--charcoal);}
+
+  /* Meeting-time cards */
+  .time-grid{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-bottom:8px;}
+  .time-card{background:var(--paper); padding:22px 22px;}
+  .time-card .tc-tag{font-family:var(--mono); font-size:0.68rem; color:var(--stamp); letter-spacing:0.04em; display:block; margin-bottom:8px;}
+  .time-card h3{margin-bottom:14px;}
+  .time-row{display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:11px 0; border-top:1px solid var(--rule);}
+  .time-row:first-of-type{border-top:none;}
+  .time-row .day{font-weight:600; font-size:0.92rem;}
+  .time-row .time{text-align:left;}
+  .time-row .time .et{font-family:var(--serif); font-weight:600; font-size:0.98rem; display:block;}
+  .time-row .time .uk{font-family:var(--mono); font-size:0.7rem; color:var(--paper-muted); display:block; margin-top:2px;}
+
+  /* Session list */
+  .session-list{border-top:1px solid var(--rule);}
+  .session-item{padding:22px 0; border-bottom:1px solid var(--rule); display:grid; gap:14px;}
+  .session-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 16px;}
+  .session-num{font-family:var(--serif); font-weight:700; font-size:1.5rem; color:var(--stamp); min-width:2ch;}
+  .session-meta{font-family:var(--mono); font-size:0.7rem; color:var(--paper-muted); letter-spacing:0.03em;}
+  .session-title{font-family:var(--serif); font-weight:600; font-size:1.1rem; flex:1 1 100%;}
+  .session-body{color:var(--paper-muted); font-size:0.92rem; max-width:74ch;}
+  .session-body ul{margin:8px 0 0 20px;}
+  .session-body li{margin-bottom:4px;}
+  .session-deliverable{
+    font-size:0.85rem; background:var(--paper-dim); border:1px solid var(--rule);
+    padding:9px 14px; display:inline-block; margin-top:4px;
+  }
+  .session-deliverable strong{color:var(--stamp);}
+
+  /* Generic data table */
+  .data-table{width:100%; border-collapse:collapse; margin-bottom:8px; font-size:0.88rem;}
+  .data-table th{
+    font-family:var(--mono); font-size:0.68rem; letter-spacing:0.03em; text-transform:uppercase;
+    background:var(--ink); color:var(--paper); text-align:left; padding:10px 12px;
+  }
+  .data-table td{padding:10px 12px; border-bottom:1px solid var(--rule); vertical-align:top;}
+  .data-table tr:nth-child(even) td{background:var(--paper-dim);}
+  .table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch; border:1px solid var(--rule); margin-bottom:10px;}
+
+  /* Assessment bars (reuse) */
+  .assess{display:flex; flex-direction:column; gap:12px; margin-bottom:8px;}
+  .bar-row{display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center;}
+  .bar-label{font-size:0.9rem; font-weight:600;}
+  .bar-pct{font-family:var(--mono); font-size:0.85rem; color:var(--stamp);}
+  .bar-track{grid-column:1 / -1; height:7px; background:rgba(246,242,231,0.12); border-radius:2px; overflow:hidden;}
+  .bar-fill{height:100%; background:var(--stamp); border-radius:2px;}
+  .bar-fill.nav{background:var(--verified);}
+
+  .foot-cta{background:var(--ink); color:var(--paper); text-align:center; padding:48px 0;}
+  .foot-cta h2{max-width:none; margin:0 auto 12px; color:var(--paper);}
+  .btn-primary{
+    background:var(--stamp); color:var(--paper); font-weight:700; font-size:0.92rem;
+    padding:12px 22px; border-radius:2px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--stamp-dark);
+  }
+  .btn-primary:hover{background:var(--stamp-dark);}
+  .btn-ghost{color:var(--paper); font-weight:600; font-size:0.92rem; padding:12px 20px; border-radius:2px; text-decoration:none; border:1px solid rgba(246,242,231,0.35);}
+  .btn-ghost:hover{border-color:var(--paper);}
+  .cta-row{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:20px;}
+
+  footer{background:var(--ink-2); color:var(--ink-muted); padding:28px 0; font-size:0.85rem;}
+  .foot-row{display:flex; flex-direction:column; gap:12px;}
+  .foot-brand{font-family:var(--serif); font-weight:600; color:var(--paper); font-size:1rem;}
+
+  @media (min-width:880px){
+    .time-grid{grid-template-columns:1fr 1fr;}
+    .session-head{flex-wrap:nowrap;}
+    .session-title{flex:1;}
+    .foot-row{flex-direction:row; justify-content:space-between; align-items:center;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="navrow">
+    <a href="index.html" class="brand">TIB<span class="dot">·</span>SYSTEMS<small>&nbsp;SAP CONTROLS ACADEMY</small></a>
+    <a href="index.html#pricing" class="nav-cta">Enroll — from $499</a>
+  </div>
+</header>
+
+<div class="pagehead">
+  <div class="wrap">
+    <a href="index.html" class="breadcrumb">← Back to The Full Sweep</a>
+    <h1>Class Calendar &amp; Schedule</h1>
+    <p>Every meeting time, every session, every reading assignment and deliverable for <strong>The Full Sweep</strong> — TIB Systems' SAP SOX/ITGC controls course — laid out in one place, in US Eastern Time.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Time zone</span>
+    <h2>All times below are US Eastern Time</h2>
+    <p class="section-lede">Most trainees join from the US, the UK, or Europe. Every time on this page is shown in US Eastern Standard Time (EST, UTC−5), with UK Time (GMT, UTC+0) alongside — the two zones trainees ask about most.</p>
+    <div class="tz-note">
+      <strong>Daylight Saving note:</strong> times below are US Eastern Standard Time (EST, UTC−5) and UK Greenwich Mean Time (GMT, UTC+0). Both shift forward an hour for daylight saving — Eastern to EDT (UTC−4), the UK to BST (UTC+1) — usually a few weeks apart each spring and autumn, so the gap between them can briefly run 4 or 6 hours instead of the usual 5. Outside those transition windows, UK time is 5 hours ahead of Eastern.
+    </div>
+  </div>
+</section>
+
+<section class="dim">
+  <div class="wrap">
+    <span class="kicker">Weekly meeting times</span>
+    <h2>What time to show up, by format</h2>
+    <p class="section-lede">Both formats run the full 8-week course. This is the standing weekly rhythm; the full week-by-week calendar follows below.</p>
+    <div class="time-grid">
+      <div class="time-card">
+        <span class="tc-tag">COURSE 1 — LIVE CLASS · $950</span>
+        <h3>20 live sessions across 8 weeks</h3>
+        <div class="time-row">
+          <span class="day">Opening &amp; Closing Sessions (Saturdays, Weeks 1 &amp; 8)</span>
+          <span class="time"><span class="et">8:00 – 11:00 AM ET</span><span class="uk">1:00 – 4:00 PM UK</span></span>
+        </div>
+        <div class="time-row">
+          <span class="day">Live sessions, Monday / Wednesday / Friday (Weeks 2–7)</span>
+          <span class="time"><span class="et">12:00 – 2:00 PM ET</span><span class="uk">5:00 – 7:00 PM UK</span></span>
+        </div>
+      </div>
+      <div class="time-card">
+        <span class="tc-tag">COURSE 2 — VIDEOS &amp; COHORT · $499</span>
+        <h3>7 live Q&amp;As + 18 self-study days</h3>
+        <div class="time-row">
+          <span class="day">Live Saturday Q&amp;A (Weeks 1–6 &amp; 8 — 7 sessions total)</span>
+          <span class="time"><span class="et">8:00 – 11:00 AM ET</span><span class="uk">1:00 – 4:00 PM UK</span></span>
+        </div>
+        <div class="time-row">
+          <span class="day">Self-study videos, Monday / Wednesday / Friday (Weeks 2–7)</span>
+          <span class="time"><span class="et">Watch anytime</span><span class="uk">No fixed time</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Full calendar</span>
+    <h2>The 8-week course, side by side</h2>
+    <p class="section-lede">Every week of the course, both formats. All times shown in Eastern Time, with UK Time alongside.</p>
+    <div class="table-scroll">
+      <table class="data-table">
+        <tr><th>Week</th><th>Course 1 — Live Class</th><th>Course 2 — Videos &amp; Cohort</th></tr>
+        <tr><td>1</td><td><strong>Opening Session</strong> — Sat, 8:00–11:00 AM ET (1:00–4:00 PM UK)</td><td><strong>Opening Q&amp;A</strong> — Sat, 8:00–11:00 AM ET (1:00–4:00 PM UK)</td></tr>
+        <tr><td>2</td><td>Live, Mon/Wed/Fri — 12:00–2:00 PM ET (5:00–7:00 PM UK)</td><td>Self-study videos, Mon/Wed/Fri (no fixed time) + Saturday Q&amp;A, 8:00–11:00 AM ET (1:00–4:00 PM UK)</td></tr>
+        <tr><td>3</td><td>Live, Mon/Wed/Fri — 12:00–2:00 PM ET (5:00–7:00 PM UK)</td><td>Self-study videos, Mon/Wed/Fri (no fixed time) + Saturday Q&amp;A, 8:00–11:00 AM ET (1:00–4:00 PM UK)</td></tr>
+        <tr><td>4</td><td>Live, Mon/Wed/Fri — 12:00–2:00 PM ET (5:00–7:00 PM UK)</td><td>Self-study videos, Mon/Wed/Fri (no fixed time) + Saturday Q&amp;A, 8:00–11:00 AM ET (1:00–4:00 PM UK)</td></tr>
+        <tr><td>5</td><td>Live, Mon/Wed/Fri — 12:00–2:00 PM ET (5:00–7:00 PM UK)</td><td>Self-study videos, Mon/Wed/Fri (no fixed time) + Saturday Q&amp;A, 8:00–11:00 AM ET (1:00–4:00 PM UK)</td></tr>
+        <tr><td>6</td><td>Live, Mon/Wed/Fri — 12:00–2:00 PM ET (5:00–7:00 PM UK)</td><td>Self-study videos, Mon/Wed/Fri (no fixed time) + Saturday Q&amp;A, 8:00–11:00 AM ET (1:00–4:00 PM UK)</td></tr>
+        <tr><td>7</td><td>Live, Mon/Wed/Fri — 12:00–2:00 PM ET (5:00–7:00 PM UK)</td><td>Self-study videos, Mon/Wed/Fri (no fixed time) — no Saturday session this week</td></tr>
+        <tr><td>8</td><td><strong>Closing Session</strong> — Sat, 8:00–11:00 AM ET (1:00–4:00 PM UK)</td><td><strong>Closing Q&amp;A</strong> — Sat, 8:00–11:00 AM ET (1:00–4:00 PM UK)</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Course 1 · The Full Sweep</span>
+    <h2>How the curriculum runs across the 8 weeks</h2>
+    <p class="section-lede">The course opens with a single Saturday session, runs live Monday/Wednesday/Friday through the six weeks in between, and closes with a second Saturday. Here's what each part of that arc covers.</p>
+
+    <div class="session-list">
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">1</span>
+          <span class="session-title">Opening Session — orientation, what a control is, the SAP landscape, Module 1</span>
+          <span class="session-meta">WEEK 1 · SATURDAY</span>
+        </div>
+        <div class="session-body">
+          Opens cold on Book 1 — two permissions sitting next to each other for five years. Covers what a control actually is (the five moving parts, the severity ladder), a survey of the SAP landscape (ECC vs. S/4HANA, SAP Security, GRC, Fiori), Thornfield and its cast, the Nine-Step Reasoning Chain (taught once, used every session after), and Module 1 — Books 1, 16 and 17 at full depth; Books 4, 7, 13 and 20 on what differs.
+          <ul>
+            <li>Planning Card exercise — Book 16 or 17, in breakout rooms</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">2</span>
+          <span class="session-title">Change, Operations &amp; the Data Estate</span>
+          <span class="session-meta">LIVE WEEKS · THEORY</span>
+        </div>
+        <div class="session-body">
+          Runs the full Nine-Step Chain against Book 2, The Emergency Change — transports, the DEV→QAS→PRD path, and the population trap that catches everybody once. Also Book 18, The Untested Backup, and Book 19, The Interface Gap, both at full depth. Extensions: Books 5, 8, 21, 22. Includes a live app demo of the SAP Testing Execution Guide.
+          <ul>
+            <li>Planning Card exercise — Book 5, 8 or 21</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">3</span>
+          <span class="session-title">Record to Report, the GRC Platform &amp; Governance</span>
+          <span class="session-meta">LIVE WEEKS · THEORY</span>
+        </div>
+        <div class="session-body">
+          The heaviest reading week — eight Books climbing from one posted journal entry to a CFO's signature. Anchors at full depth: Book 3 (The Approval Limit), Book 14 (The Rule That Never Fired), Book 12 (The Four-Day Clock — ICFR vs. disclosure controls, and the SEC cyber-disclosure clock). Extensions: Books 6, 9, 15, 10, 11. Introduces the workpaper standard.
+          <ul>
+            <li>Planning Card exercise — Book 15, 9 or 6</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">4</span>
+          <span class="session-title">Module 1 hands-on — Access, Identity &amp; Authorization</span>
+          <span class="session-meta">LIVE WEEKS · SAP LAB</span>
+        </div>
+        <div class="session-body">
+          First hour: the facilitator demonstrates three tests end to end in a live SAP system — Book 1 (Access Risk Analysis, PFCG, SUIM), Book 16 (Firefighter Log Report, SU01), Book 17 (SU01, SUIM). Second hour: you run the same three tests yourself, on your own login.
+          <div class="session-deliverable"><strong>Due before the next session:</strong> Workpaper Lab — Book 17, The Leaver</div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">5</span>
+          <span class="session-title">Module 2 hands-on — Change, Operations &amp; the Data Estate</span>
+          <span class="session-meta">LIVE WEEKS · SAP LAB</span>
+        </div>
+        <div class="session-body">
+          Workpaper feedback, then three tests demonstrated and run: Book 2 (STMS import history, SE01), Book 18 (DB13, DB12, SM37), Book 19 (SM58, SMQ1/SMQ2, WE02). Second hour, you drive.
+          <div class="session-deliverable"><strong>Due before the next session:</strong> Workpaper Lab — Book 2, The Emergency Change</div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">6</span>
+          <span class="session-title">Module 3 hands-on — R2R, GRC Platform &amp; Governance</span>
+          <span class="session-meta">LIVE WEEKS · SAP LAB</span>
+        </div>
+        <div class="session-body">
+          Workpaper feedback, then Book 3 (FBL3N, FB03, SWI1), Book 14 (GRC Process Control rule view, or the SM37 fallback), Book 12 (SM21, SM20). Second hour, you drive.
+          <div class="session-deliverable"><strong>Due within one week:</strong> Workpaper Lab — Book 3, The Approval Limit</div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">–</span>
+          <span class="session-title">Continued live sessions — remaining live weeks</span>
+          <span class="session-meta">LIVE WEEKS · EXTENDED SCOPE</span>
+        </div>
+        <div class="session-body">
+          The live class runs Monday/Wednesday/Friday across six weeks in total; the sessions above cover the core theory and hands-on lab curriculum. The remaining live sessions extend the case further into the scope areas the post-class Training Manuals cover — full session-by-session topics for these will be published as the syllabus is finalized.
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">8</span>
+          <span class="session-title">Closing Session — assessment review, what you can now do, what's next</span>
+          <span class="session-meta">WEEK 8 · SATURDAY</span>
+        </div>
+        <div class="session-body">
+          Course wrap-up: how you're assessed, the things you can now do that you couldn't eight weeks ago, and where Course 2 goes.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dim">
+  <div class="wrap">
+    <span class="kicker">Reading plan</span>
+    <h2>What to read, and when</h2>
+    <p class="section-lede">"Read in full" means once, properly, without your phone. "Skim the summaries" means the one-paragraph version, so the name means something when it comes up in session.</p>
+    <div class="table-scroll">
+      <table class="data-table">
+        <tr><th>Before</th><th>Read in full</th><th>Skim the summaries</th><th>Rough time</th></tr>
+        <tr><td>Before Opening Session</td><td>Book 1</td><td>Books 4, 7, 13, 16, 17, 20</td><td>60–75 min</td></tr>
+        <tr><td>Before Theory Session 2</td><td>Book 2</td><td>Books 5, 8, 18, 19, 21, 22</td><td>60–75 min</td></tr>
+        <tr><td>Before Theory Session 3</td><td>Book 3</td><td>Books 6, 9, 10, 11, 12, 14, 15</td><td>70–85 min</td></tr>
+        <tr><td>Before Lab Session 4</td><td>Books 1, 16, 17 — Execution Steps</td><td>—</td><td>45 min</td></tr>
+        <tr><td>Before Lab Session 5</td><td>Books 2, 18, 19 — Execution Steps</td><td>—</td><td>45 min</td></tr>
+        <tr><td>Before Lab Session 6</td><td>Books 3, 14, 12 — Execution Steps</td><td>—</td><td>45 min</td></tr>
+      </table>
+    </div>
+
+    <h3 style="margin-top:28px;">When the material arrives</h3>
+    <div class="table-scroll">
+      <table class="data-table">
+        <tr><th>Pack</th><th>When it arrives</th><th>What's in it</th></tr>
+        <tr><td>Theory pack</td><td>The Friday before your Opening Session</td><td>All 22 Books, the Nine-Step Reasoning Chain, the Planning Card template, and the workpaper field list</td></tr>
+        <tr><td>Lab pack</td><td>The Friday before your SAP lab sessions begin</td><td>The SAP Testing Execution Guide, your SAP access details, and the lab workbook</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Deliverables</span>
+    <h2>What's handed in, and when</h2>
+    <div class="table-scroll">
+      <table class="data-table">
+        <tr><th>Deliverable</th><th>Set at</th><th>Due</th></tr>
+        <tr><td>Planning Card — Book 16 or 17</td><td>Session 1</td><td>In session</td></tr>
+        <tr><td>Planning Card — Book 5, 8 or 21</td><td>Session 2</td><td>In session</td></tr>
+        <tr><td>Planning Card — Book 15, 9 or 6</td><td>Session 3</td><td>In session</td></tr>
+        <tr><td>Workpaper Lab 1 — Book 17</td><td>Session 4</td><td>Before Session 5</td></tr>
+        <tr><td>Workpaper Lab 2 — Book 2</td><td>Session 5</td><td>Before Session 6</td></tr>
+        <tr><td>Workpaper Lab 3 — Book 3</td><td>Session 6</td><td>Within one week</td></tr>
+      </table>
+    </div>
+    <p class="section-lede" style="margin-top:14px; margin-bottom:0;">Reviewer notes come back within a week of receipt, every time.</p>
+  </div>
+</section>
+
+<section class="on-ink">
+  <div class="wrap">
+    <span class="kicker">How you're assessed</span>
+    <h2>Judgement, not navigation</h2>
+    <p class="section-lede">SAP execution accuracy is ten percent of the grade. Everything above it is judgement.</p>
+    <div class="assess">
+      <div class="bar-row"><span class="bar-label">Business risk and control understanding</span><span class="bar-pct">20%</span><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div></div>
+      <div class="bar-row"><span class="bar-label">Testing strategy and population definition</span><span class="bar-pct">15%</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div></div>
+      <div class="bar-row"><span class="bar-label">Evidence evaluation</span><span class="bar-pct">15%</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div></div>
+      <div class="bar-row"><span class="bar-label">Consultant judgement and escalation</span><span class="bar-pct">15%</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div></div>
+      <div class="bar-row"><span class="bar-label">Workpaper and conclusion quality</span><span class="bar-pct">15%</span><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div></div>
+      <div class="bar-row"><span class="bar-label">Stakeholder communication</span><span class="bar-pct">10%</span><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div></div>
+      <div class="bar-row"><span class="bar-label">SAP execution accuracy</span><span class="bar-pct">10%</span><div class="bar-track"><div class="bar-fill nav" style="width:10%"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dim">
+  <div class="wrap">
+    <span class="kicker">Format comparison</span>
+    <h2>Course 1 — Live Class vs. Course 2 — Videos &amp; Cohort</h2>
+    <p class="section-lede">Same syllabus, same reading, same deliverables. What differs is when you meet and how you get your questions answered.</p>
+    <div class="table-scroll">
+      <table class="data-table">
+        <tr><th></th><th>Course 1 — Live Class</th><th>Course 2 — Videos &amp; Cohort</th></tr>
+        <tr><td>Sessions</td><td>20 live sessions, Weeks 1–8</td><td>18 self-study video days + 7 live Saturday Q&amp;As</td></tr>
+        <tr><td>Questions</td><td>Ask in the room</td><td>Submit by Thursday</td></tr>
+        <tr><td>Live contact</td><td>Every session</td><td>Saturday Q&amp;A — 7 sessions across the course</td></tr>
+        <tr><td>Case Lab gates</td><td>Argued in session</td><td>Posed in the recording, argued on Saturday</td></tr>
+        <tr><td>SAP lab sessions</td><td>Second hour of each lab session</td><td>On your own login, during the week</td></tr>
+        <tr><td>Workpapers due</td><td>Before the next session</td><td>Before the next Saturday</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="foot-cta">
+  <div class="wrap">
+    <span class="kicker" style="justify-content:center; display:flex;">Ready to pick a seat?</span>
+    <h2>Seven trainees a cohort. Reserve yours.</h2>
+    <div class="cta-row">
+      <a href="index.html#pricing" class="btn-primary">Enroll — from $499 →</a>
+      <a href="index.html#faq" class="btn-ghost">Read the FAQ</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div>
+      <div class="foot-brand">TIB Systems</div>
+      <div>SAP SECURITY · GRC · CONTROLS &amp; COMPLIANCE ACADEMY</div>
+    </div>
+    <div><a href="index.html" style="text-decoration:underline;">← Back to course overview</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
