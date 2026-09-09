@@ -17,18 +17,37 @@ module.exports = async (req, res) => {
     }
 
     const track = VALID_TRACKS.has(tier) ? tier : 'weekday_950';
+    const trackLabel = track === 'weekend_950' ? 'Weekend Track (Sat/Sun)' : 'Weekday Track (Mon/Wed/Fri)';
     const origin = req.headers.origin || `https://${req.headers.host}`;
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       payment_method_types: ['card'],
       customer_email: email,
+      submit_type: 'book',
       line_items: [
         {
           price: process.env.STRIPE_PRICE_ID_FULL_SWEEP,
           quantity: 1,
         },
       ],
+      payment_intent_data: {
+        description: `The Full Sweep enrollment — ${trackLabel} — ${full_name}`,
+      },
+      consent_collection: {
+        terms_of_service: 'required',
+      },
+      custom_text: {
+        submit: {
+          message: `You're enrolling ${full_name} in The Full Sweep, ${trackLabel}. Your seat is confirmed as soon as payment completes, and we'll email a Course Access setup link to ${email} within a few minutes.`,
+        },
+        after_submit: {
+          message: 'Payment received — redirecting you back to TIB Systems to confirm your seat.',
+        },
+        terms_of_service_acceptance: {
+          message: `I agree to TIB Systems' [Enrollment Terms](${origin}/terms.html), including the cancellation and refund policy.`,
+        },
+      },
       metadata: {
         course: 'full_sweep',
         track,
