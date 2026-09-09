@@ -46,7 +46,7 @@ module.exports = async (req, res) => {
 
     try {
       const { error: insertError } = await supabaseAdmin
-        .from('full_sweep_purchases')
+        .from('course_enrollments')
         .insert({
           stripe_session_id: session.id,
           stripe_customer_id: session.customer,
@@ -80,7 +80,7 @@ module.exports = async (req, res) => {
         console.error('Supabase invite error:', inviteError);
       } else {
         await supabaseAdmin
-          .from('full_sweep_purchases')
+          .from('course_enrollments')
           .update({ account_created: true })
           .eq('stripe_session_id', session.id);
       }
