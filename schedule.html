@@ -69,20 +69,20 @@
   }
 
   /* Page header */
-  .pagehead{background:var(--ink); color:var(--paper); padding:20px 0 22px;}
-  .breadcrumb{font-family:var(--mono); font-size:0.72rem; color:#C99E82; text-decoration:none; display:inline-block; margin-bottom:8px;}
+  .pagehead{background:var(--ink); color:var(--paper); padding:34px 0 36px;}
+  .breadcrumb{font-family:var(--mono); font-size:0.72rem; color:#C99E82; text-decoration:none; display:inline-block; margin-bottom:14px;}
   .breadcrumb:hover{color:var(--paper);}
-  .pagehead h1{font-family:var(--serif); font-weight:600; font-size:clamp(1.5rem, 4vw, 2.1rem); line-height:1.15; max-width:20ch; margin-bottom:8px;}
-  .pagehead p{color:var(--ink-muted); font-size:0.92rem; max-width:64ch; line-height:1.45;}
+  .pagehead h1{font-family:var(--serif); font-weight:600; font-size:clamp(1.7rem, 5vw, 2.5rem); line-height:1.15; max-width:20ch; margin-bottom:12px;}
+  .pagehead p{color:var(--ink-muted); font-size:1rem; max-width:64ch;}
 
-  section{padding:26px 0;}
+  section{padding:44px 0;}
   section.dim{background:var(--paper-dim);}
   section.on-ink{background:var(--ink); color:var(--paper);}
   .kicker{font-family:var(--mono); font-size:0.68rem; letter-spacing:0.07em; color:var(--stamp); margin-bottom:10px; display:block;}
   .on-ink .kicker{color:#D79A85;}
   h2{font-family:var(--serif); font-weight:600; font-size:clamp(1.4rem, 4vw, 1.9rem); line-height:1.2; letter-spacing:-0.01em; margin-bottom:14px; max-width:36ch;}
   h3{font-family:var(--serif); font-weight:600; font-size:1.15rem; margin-bottom:8px;}
-  .section-lede{max-width:64ch; color:var(--paper-muted); font-size:0.94rem; margin-bottom:16px;}
+  .section-lede{max-width:64ch; color:var(--paper-muted); font-size:0.98rem; margin-bottom:28px;}
   .on-ink .section-lede{color:var(--ink-muted);}
 
   /* Timezone callout */
@@ -94,7 +94,7 @@
 
   /* Meeting-time cards */
   .time-grid{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-bottom:8px;}
-  .time-card{background:var(--paper); padding:16px 18px;}
+  .time-card{background:var(--paper); padding:22px 22px;}
   .time-card .tc-tag{font-family:var(--mono); font-size:0.68rem; color:var(--stamp); letter-spacing:0.04em; display:block; margin-bottom:8px;}
   .time-card h3{margin-bottom:14px;}
   .time-row{display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:11px 0; border-top:1px solid var(--rule);}
@@ -180,44 +180,6 @@
   </div>
 </div>
 
-<section class="dim">
-  <div class="wrap">
-    <span class="kicker">Weekly meeting times</span>
-    <h2>What time to show up, by track</h2>
-    <p class="section-lede">Both tracks run the full 4-week course, fully live either way with the same instructor. This is the standing weekly rhythm; the full week-by-week calendar follows below.</p>
-    <div class="time-grid">
-      <div class="time-card">
-        <span class="tc-tag">WEEKDAY TRACK · $950</span>
-        <h3>8 live sessions across 4 weeks</h3>
-        <div class="time-row">
-          <span class="day">Opening &amp; Closing Sessions (Saturdays, Weeks 1 &amp; 4)</span>
-          <span class="time"><span class="et">9:00 AM – 12:00 PM ET</span></span>
-        </div>
-        <div class="time-row">
-          <span class="day">Live sessions, Monday / Wednesday / Friday (Weeks 2–3)</span>
-          <span class="time"><span class="et">1:00 – 4:00 PM ET</span></span>
-        </div>
-      </div>
-      <div class="time-card">
-        <span class="tc-tag">WEEKEND TRACK · $950</span>
-        <h3>6 live sessions across 4 weeks</h3>
-        <div class="time-row">
-          <span class="day">Opening &amp; Closing Sessions (Saturdays, Weeks 1 &amp; 4)</span>
-          <span class="time"><span class="et">9:00 AM – 12:00 PM ET</span></span>
-        </div>
-        <div class="time-row">
-          <span class="day">Live sessions, Saturday (Weeks 2–3)</span>
-          <span class="time"><span class="et">9:00 AM – 12:00 PM ET</span></span>
-        </div>
-        <div class="time-row">
-          <span class="day">Live sessions, Sunday (Weeks 2–3)</span>
-          <span class="time"><span class="et">12:00 – 3:00 PM ET</span></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section>
   <div class="wrap">
     <span class="kicker">Time zone</span>
@@ -229,18 +191,58 @@
   </div>
 </section>
 
+<section class="dim">
+  <div class="wrap">
+    <span class="kicker">Weekly meeting times</span>
+    <h2>What time to show up, by track</h2>
+    <p class="section-lede">Both tracks run the full 6-week course (1 reading week, 4 teaching weeks, 1 post-class week), fully live either way with the same instructor. This is the standing weekly rhythm; the full week-by-week calendar follows below.</p>
+    <div class="time-grid">
+      <div class="time-card">
+        <span class="tc-tag">WEEKDAY TRACK · $950</span>
+        <h3>14 live sessions across 6 weeks</h3>
+        <div class="time-row">
+          <span class="day">Opening &amp; Closing Sessions (Saturdays, Weeks 1 &amp; 6)</span>
+          <span class="time"><span class="et">9:00 AM – 12:00 PM ET</span></span>
+        </div>
+        <div class="time-row">
+          <span class="day">Live sessions, Monday / Wednesday / Friday (Weeks 2–5)</span>
+          <span class="time"><span class="et">12:00 – 2:00 PM ET</span></span>
+        </div>
+      </div>
+      <div class="time-card">
+        <span class="tc-tag">WEEKEND TRACK · $950</span>
+        <h3>10 live sessions across 6 weeks</h3>
+        <div class="time-row">
+          <span class="day">Opening &amp; Closing Sessions (Saturdays, Weeks 1 &amp; 6)</span>
+          <span class="time"><span class="et">9:00 AM – 12:00 PM ET</span></span>
+        </div>
+        <div class="time-row">
+          <span class="day">Live sessions, Saturday (Weeks 2–5)</span>
+          <span class="time"><span class="et">9:00 AM – 12:00 PM ET</span></span>
+        </div>
+        <div class="time-row">
+          <span class="day">Live sessions, Sunday (Weeks 2–5)</span>
+          <span class="time"><span class="et">12:00 – 3:00 PM ET</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <span class="kicker">Full calendar</span>
-    <h2>The 4-week course, side by side</h2>
+    <h2>The 6-week course, side by side</h2>
     <p class="section-lede">Every week of the course, both tracks. All times shown in US Eastern Time.</p>
     <div class="table-scroll">
       <table class="data-table">
         <tr><th>Week</th><th>Weekday Track</th><th>Weekend Track</th></tr>
-        <tr><td>1</td><td><strong>Opening Session</strong> — Sat 12 Sep, 9:00 AM–12:00 PM ET</td><td><strong>Opening Session</strong> — Sat 12 Sep, 9:00 AM–12:00 PM ET</td></tr>
-        <tr><td>2</td><td>Live, Mon 14 · Wed 16 · Fri 18 Sep — 1:00–4:00 PM ET</td><td>Live, Sat 19 Sep 9:00 AM–12:00 PM ET &amp; Sun 20 Sep 12:00–3:00 PM ET</td></tr>
-        <tr><td>3</td><td>Live, Mon 21 · Wed 23 · Fri 25 Sep — 1:00–4:00 PM ET</td><td>Live, Sat 26 Sep 9:00 AM–12:00 PM ET &amp; Sun 27 Sep 12:00–3:00 PM ET</td></tr>
-        <tr><td>4</td><td><strong>Closing Session</strong> — Sat 3 Oct, 9:00 AM–12:00 PM ET</td><td><strong>Closing Session</strong> — Sat 3 Oct, 9:00 AM–12:00 PM ET</td></tr>
+        <tr><td>1</td><td><strong>Opening Session</strong> — Sat 12 Sep, 9:00 AM–12:00 PM ET</td><td><strong>Opening Session</strong> — Sat 12 Sep, same live session</td></tr>
+        <tr><td>2</td><td>Theory, Modules 1–3 — Mon 14 / Wed 16 / Fri 18 Sep, 12:00–2:00 PM ET</td><td>Theory, Modules 1–3 — Sat 19 Sep 9:00 AM–12:00 PM ET &amp; Sun 20 Sep 12:00–3:00 PM ET</td></tr>
+        <tr><td>3</td><td>Lab, Modules 1–3 — Mon 21 / Wed 23 / Fri 25 Sep, 12:00–2:00 PM ET</td><td>Lab, Modules 1–3 — Sat 26 Sep 9:00 AM–12:00 PM ET &amp; Sun 27 Sep 12:00–3:00 PM ET</td></tr>
+        <tr><td>4</td><td>Theory, Module 4 — Mon 28 Sep / Wed 30 Sep / Fri 2 Oct, 12:00–2:00 PM ET</td><td>Theory, Module 4 — Sat 3 Oct 9:00 AM–12:00 PM ET &amp; Sun 4 Oct 12:00–3:00 PM ET</td></tr>
+        <tr><td>5</td><td>Lab, Module 4 — Mon 5 / Wed 7 / Fri 9 Oct, 12:00–2:00 PM ET</td><td>Lab, Module 4 — Sat 10 Oct 9:00 AM–12:00 PM ET &amp; Sun 11 Oct 12:00–3:00 PM ET</td></tr>
+        <tr><td>6</td><td>Post-class reading, then <strong>Closing Session</strong> — Sat 17 Oct, 9:00 AM–12:00 PM ET</td><td>Post-class reading, then <strong>Closing Session</strong> — Sat 17 Oct, same live session</td></tr>
       </table>
     </div>
   </div>
@@ -249,34 +251,31 @@
 <section>
   <div class="wrap">
     <span class="kicker">The Full Sweep</span>
-    <h2>How the curriculum runs across the 4 weeks</h2>
-    <p class="section-lede">The course opens with a single Saturday session, runs live Monday/Wednesday/Friday through the two weeks in between, and closes with a second Saturday. Here's what each part of that arc covers. (Weekend Track trainees cover this identical curriculum, in the same order, with the same live instructor — just delivered across Saturday + Sunday sessions instead of Monday/Wednesday/Friday.)</p>
+    <h2>How the curriculum runs across the 6 weeks</h2>
+    <p class="section-lede">The course opens with a shared Saturday session, splits into Weekday (Mon/Wed/Fri) and Weekend (Sat/Sun) tracks for the four teaching weeks in between, and closes with a second shared Saturday. Session numbers below follow the Weekday Track; the Weekend Track covers the identical curriculum, in the same order, with the same live instructor, across half as many (longer) sessions. All theory comes before any lab, within each module group — the course is built so you reason through a scenario before you ever open a transaction.</p>
 
     <div class="session-list">
       <div class="session-item">
         <div class="session-head">
           <span class="session-num">1</span>
-          <span class="session-title">Opening Session — orientation, what a control is, the SAP landscape, Module 1</span>
-          <span class="session-meta">WEEK 1 · SATURDAY</span>
+          <span class="session-title">Opening Session — orientation, what a control is, the SAP landscape, course induction</span>
+          <span class="session-meta">WEEK 1 · SATURDAY · BOTH TRACKS</span>
         </div>
         <div class="session-body">
-          Opens cold on Book 1 — two permissions sitting next to each other for five years. Covers what a control actually is (the five moving parts, the severity ladder), a survey of the SAP landscape (ECC vs. S/4HANA, SAP Security, GRC, Fiori), Thornfield and its cast, the Nine-Step Reasoning Chain (taught once, used every session after), and Module 1 — Books 1, 16 and 17 at full depth; Books 4, 7, 13 and 20 on what differs.
-          <ul>
-            <li>Planning Card exercise — Book 16 or 17, in breakout rooms</li>
-          </ul>
+          Guide review, Q&amp;A, and course induction. Opens cold on Book 1 — two permissions sitting next to each other for five years. Covers what a control actually is (the five moving parts, the severity ladder), a survey of the SAP landscape (ECC vs. S/4HANA, SAP Security, GRC, Fiori), Thornfield and its cast, and the Nine-Step Reasoning Chain (taught once, used every session after).
         </div>
       </div>
 
       <div class="session-item">
         <div class="session-head">
           <span class="session-num">2</span>
-          <span class="session-title">Change, Operations &amp; the Data Estate</span>
-          <span class="session-meta">LIVE WEEKS · THEORY</span>
+          <span class="session-title">Theory — Module 1, Access, Identity &amp; Authorization</span>
+          <span class="session-meta">WEEK 2 · MON 14 SEP</span>
         </div>
         <div class="session-body">
-          Runs the full Nine-Step Chain against Book 2, The Emergency Change — transports, the DEV→QAS→PRD path, and the population trap that catches everybody once. Also Book 18, The Untested Backup, and Book 19, The Interface Gap, both at full depth. Extensions: Books 5, 8, 21, 22. Includes a live app demo of the SAP Testing Execution Guide.
+          Module 1 at full depth — Books 1, 16 and 17; Books 4, 7 and 13 on what differs.
           <ul>
-            <li>Planning Card exercise — Book 5, 8 or 21</li>
+            <li>Planning Card 1 — completed in session</li>
           </ul>
         </div>
       </div>
@@ -284,13 +283,13 @@
       <div class="session-item">
         <div class="session-head">
           <span class="session-num">3</span>
-          <span class="session-title">Record to Report, the GRC Platform &amp; Governance</span>
-          <span class="session-meta">LIVE WEEKS · THEORY</span>
+          <span class="session-title">Theory — Module 2, Change, Operations &amp; the Data Estate</span>
+          <span class="session-meta">WEEK 2 · WED 16 SEP</span>
         </div>
         <div class="session-body">
-          The heaviest reading week — eight Books climbing from one posted journal entry to a CFO's signature. Anchors at full depth: Book 3 (The Approval Limit), Book 14 (The Rule That Never Fired), Book 12 (The Four-Day Clock — ICFR vs. disclosure controls, and the SEC cyber-disclosure clock). Extensions: Books 6, 9, 15, 10, 11. Introduces the workpaper standard.
+          Runs the full Nine-Step Chain against Book 2, The Emergency Change — transports, the DEV→QAS→PRD path, and the population trap that catches everybody once. Also Book 18, The Untested Backup, and Book 19, The Interface Gap, both at full depth. Extensions: Books 5, 8, 20, 21, 22.
           <ul>
-            <li>Planning Card exercise — Book 15, 9 or 6</li>
+            <li>Planning Card 2 — completed in session</li>
           </ul>
         </div>
       </div>
@@ -298,59 +297,137 @@
       <div class="session-item">
         <div class="session-head">
           <span class="session-num">4</span>
-          <span class="session-title">Module 1 hands-on — Access, Identity &amp; Authorization</span>
-          <span class="session-meta">LIVE WEEKS · SAP LAB</span>
+          <span class="session-title">Theory — Module 3, Record to Report, the GRC Platform &amp; Governance</span>
+          <span class="session-meta">WEEK 2 · FRI 18 SEP</span>
         </div>
         <div class="session-body">
-          First hour: the facilitator demonstrates three tests end to end in a live SAP system — Book 1 (Access Risk Analysis, PFCG, SUIM), Book 16 (Firefighter Log Report, SU01), Book 17 (SU01, SUIM). Second hour: you run the same three tests yourself, on your own login.
-          <div class="session-deliverable"><strong>Due before the next session:</strong> Workpaper Lab — Book 17, The Leaver</div>
+          The heaviest reading week — Books climbing from one posted journal entry to a CFO's signature. Anchors at full depth: Book 3 (The Approval Limit), Book 14 (The Rule That Never Fired), Book 12 (The Four-Day Clock — ICFR vs. disclosure controls, and the SEC cyber-disclosure clock). Extensions: Books 6, 9, 10, 11, 15. Introduces the workpaper standard.
+          <ul>
+            <li>Planning Card 3 — completed in session</li>
+          </ul>
         </div>
       </div>
 
       <div class="session-item">
         <div class="session-head">
           <span class="session-num">5</span>
-          <span class="session-title">Module 2 hands-on — Change, Operations &amp; the Data Estate</span>
-          <span class="session-meta">LIVE WEEKS · SAP LAB</span>
+          <span class="session-title">Lab — Module 1, Access, Identity &amp; Authorization</span>
+          <span class="session-meta">WEEK 3 · MON 21 SEP</span>
         </div>
         <div class="session-body">
-          Workpaper feedback, then three tests demonstrated and run: Book 2 (STMS import history, SE01), Book 18 (DB13, DB12, SM37), Book 19 (SM58, SMQ1/SMQ2, WE02). Second hour, you drive.
-          <div class="session-deliverable"><strong>Due before the next session:</strong> Workpaper Lab — Book 2, The Emergency Change</div>
+          First half: the facilitator demonstrates three tests end to end in a live SAP system — Book 1 (Access Risk Analysis, PFCG, SUIM), Book 16 (Firefighter Log Report, SU01), Book 17 (SU01, SUIM). Second half: you run the same three tests yourself, on your own login.
+          <div class="session-deliverable"><strong>Due before Wed 23 Sep:</strong> Workpaper 1 — Book 17, The Leaver</div>
         </div>
       </div>
 
       <div class="session-item">
         <div class="session-head">
           <span class="session-num">6</span>
-          <span class="session-title">Module 3 hands-on — R2R, GRC Platform &amp; Governance</span>
-          <span class="session-meta">LIVE WEEKS · SAP LAB</span>
+          <span class="session-title">Lab — Module 2, Change, Operations &amp; the Data Estate</span>
+          <span class="session-meta">WEEK 3 · WED 23 SEP</span>
         </div>
         <div class="session-body">
-          Workpaper feedback, then Book 3 (FBL3N, FB03, SWI1), Book 14 (GRC Process Control rule view, or the SM37 fallback), Book 12 (SM21, SM20). Second hour, you drive.
-          <div class="session-deliverable"><strong>Due within one week:</strong> Workpaper Lab — Book 3, The Approval Limit</div>
+          Workpaper feedback, then three tests demonstrated and run: Book 2 (STMS import history, SE01), Book 18 (DB13, DB12, SM37), Book 19 (SM58, SMQ1/SMQ2, WE02). Second half, you drive.
+          <div class="session-deliverable"><strong>Due before Fri 25 Sep:</strong> Workpaper 2 — Book 2, The Emergency Change</div>
         </div>
       </div>
 
       <div class="session-item">
         <div class="session-head">
-          <span class="session-num">–</span>
-          <span class="session-title">Post-class self-study</span>
-          <span class="session-meta">BETWEEN THE LIVE WEEKS AND THE CLOSE</span>
+          <span class="session-num">7</span>
+          <span class="session-title">Lab — Module 3, Record to Report, GRC Platform &amp; Governance</span>
+          <span class="session-meta">WEEK 3 · FRI 25 SEP</span>
         </div>
         <div class="session-body">
-          Eight chapters covering S/4HANA implementations and upgrades, ITGC Basis settings and security, and the four business cycles — Record-to-Report, Order-to-Cash, Purchase-to-Pay and Forecast-to-Stock — plus audit tips and tools and final audit preparations. Each chapter has a Course Summary and a Training Manual; read the summary first.
-          <div class="session-deliverable"><strong>Questions due Thursday 1 October,</strong> for the closing session</div>
+          Workpaper feedback, then Book 3 (FBL3N, FB03, SWI1), Book 14 (GRC Process Control rule view, or the SM37 fallback), Book 12 (SM21, SM20). Second half, you drive.
+          <div class="session-deliverable"><strong>Due by Fri 2 Oct:</strong> Workpaper 3 — Book 3, The Approval Limit</div>
         </div>
       </div>
 
       <div class="session-item">
         <div class="session-head">
           <span class="session-num">8</span>
-          <span class="session-title">Closing Session — post-class review, what you can do now, what's next</span>
-          <span class="session-meta">WEEK 4 · SATURDAY</span>
+          <span class="session-title">Theory — Module 4a, Business Application Controls (money leaving the company)</span>
+          <span class="session-meta">WEEK 4 · MON 28 SEP</span>
         </div>
         <div class="session-body">
-          Works the questions submitted on the eight post-class chapters, connects the four business cycles back to the Books already tested, and covers audit tips, tools and final audit preparations. Course wrap-up: how you're assessed, the things you can do now that you couldn't four weeks ago, and what comes next.
+          Module 4 is a different layer from everything before it — controls built into configuration that operate on every transaction, with no human deciding to perform them. Books 24 and 25 at full depth.
+          <ul>
+            <li>Planning Card 4 — completed in session</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">9</span>
+          <span class="session-title">Theory — Module 4b, Business Application Controls (what the system was told)</span>
+          <span class="session-meta">WEEK 4 · WED 30 SEP</span>
+        </div>
+        <div class="session-body">
+          Books 26 and 27 at full depth.
+          <ul>
+            <li>Planning Card 5 — completed in session</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">10</span>
+          <span class="session-title">Theory — Module 4c, Business Application Controls (what runs unwatched)</span>
+          <span class="session-meta">WEEK 4 · FRI 2 OCT</span>
+        </div>
+        <div class="session-body">
+          Books 23 and 28 at full depth.
+          <ul>
+            <li>Planning Card 6 — completed in session</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">11</span>
+          <span class="session-title">Lab — Module 4a, Business Application Controls</span>
+          <span class="session-meta">WEEK 5 · MON 5 OCT</span>
+        </div>
+        <div class="session-body">
+          A different kind of lab from Modules 1–3 — no reports to run. This one reads configuration tables directly: EKPO, RSEG. Books 24 and 25 demonstrated, then run on your own login.
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">12</span>
+          <span class="session-title">Lab — Module 4b, Business Application Controls</span>
+          <span class="session-meta">WEEK 5 · WED 7 OCT</span>
+        </div>
+        <div class="session-body">
+          Continues in configuration tables — CDPOS, OMR6. Books 26 and 27 demonstrated, then run on your own login.
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">13</span>
+          <span class="session-title">Lab — Module 4c, Business Application Controls</span>
+          <span class="session-meta">WEEK 5 · FRI 9 OCT</span>
+        </div>
+        <div class="session-body">
+          Books 23 and 28 demonstrated, then run on your own login. Less clicking, more deciding what a single configuration field means.
+          <div class="session-deliverable"><strong>Due by Fri 16 Oct:</strong> Workpaper 4 — Book 24, The Match That Wasn't</div>
+        </div>
+      </div>
+
+      <div class="session-item">
+        <div class="session-head">
+          <span class="session-num">14</span>
+          <span class="session-title">Closing Session — post-class review, business cycles, programme close</span>
+          <span class="session-meta">WEEK 6 · SAT 17 OCT · BOTH TRACKS</span>
+        </div>
+        <div class="session-body">
+          Course wrap-up: how you're assessed, the things you can now do that you couldn't six weeks ago, and what comes next.
         </div>
       </div>
     </div>
@@ -366,11 +443,15 @@
       <table class="data-table">
         <tr><th>Before</th><th>Read in full</th><th>Skim the summaries</th><th>Rough time</th></tr>
         <tr><td>Before Opening Session</td><td>Book 1</td><td>Books 4, 7, 13, 16, 17, 20</td><td>60–75 min</td></tr>
-        <tr><td>Before Theory Session 2</td><td>Book 2</td><td>Books 5, 8, 18, 19, 21, 22</td><td>60–75 min</td></tr>
-        <tr><td>Before Theory Session 3</td><td>Book 3</td><td>Books 6, 9, 10, 11, 12, 14, 15</td><td>70–85 min</td></tr>
-        <tr><td>Before Lab Session 4</td><td>Books 1, 16, 17 — Execution Steps</td><td>—</td><td>45 min</td></tr>
-        <tr><td>Before Lab Session 5</td><td>Books 2, 18, 19 — Execution Steps</td><td>—</td><td>45 min</td></tr>
-        <tr><td>Before Lab Session 6</td><td>Books 3, 14, 12 — Execution Steps</td><td>—</td><td>45 min</td></tr>
+        <tr><td>Before Theory Session 2 (Mon 14 Sep)</td><td>Book 2</td><td>Books 5, 8, 18, 19, 21, 22</td><td>60–75 min</td></tr>
+        <tr><td>Before Theory Session 3 (Wed 16 Sep)</td><td>Book 3</td><td>Books 6, 9, 10, 11, 12, 14, 15</td><td>70–85 min</td></tr>
+        <tr><td>Before Lab Session 5 (Mon 21 Sep)</td><td>Books 1, 16, 17 — Execution Steps</td><td>—</td><td>45 min</td></tr>
+        <tr><td>Before Lab Session 6 (Wed 23 Sep)</td><td>Books 2, 18, 19 — Execution Steps</td><td>—</td><td>45 min</td></tr>
+        <tr><td>Before Lab Session 7 (Fri 25 Sep)</td><td>Books 3, 14, 12 — Execution Steps</td><td>—</td><td>45 min</td></tr>
+        <tr><td>Before Theory Session 8 (Mon 28 Sep)</td><td>Books 24, 25</td><td>—</td><td>45 min</td></tr>
+        <tr><td>Before Theory Session 9 (Wed 30 Sep)</td><td>Books 26, 27</td><td>—</td><td>45 min</td></tr>
+        <tr><td>Before Theory Session 10 (Fri 2 Oct)</td><td>Books 23, 28</td><td>—</td><td>45 min</td></tr>
+        <tr><td>Before Lab Sessions 11–13 (Module 4 lab)</td><td>Books 23–28 — Execution Steps</td><td>—</td><td>45 min</td></tr>
       </table>
     </div>
 
@@ -378,8 +459,12 @@
     <div class="table-scroll">
       <table class="data-table">
         <tr><th>Pack</th><th>When it arrives</th><th>What's in it</th></tr>
-        <tr><td>Theory pack</td><td>The Friday before your Opening Session</td><td>All 22 Books, the Nine-Step Reasoning Chain, the Planning Card template, and the workpaper field list</td></tr>
-        <tr><td>Lab pack</td><td>The Friday before your SAP lab sessions begin</td><td>The SAP Testing Execution Guide, your SAP access details, and the lab workbook</td></tr>
+        <tr><td>Pre-class pack</td><td>Sun 6 Sep</td><td>START HERE pack and three pre-class study guides</td></tr>
+        <tr><td>Main course pack</td><td>Sat 12 Sep (Opening Session)</td><td>Books 1–22, the Nine-Step Reasoning Chain, Reading Packs 1–3, Planning Card and Workpaper templates, Junior Study Guide, Navigation Guide</td></tr>
+        <tr><td>Lab pack</td><td>Fri 18 Sep</td><td>Reading Packs 4–6, the SAP Testing Execution Guide, and your SAP server access details</td></tr>
+        <tr><td>Module 4 pack</td><td>Fri 25 Sep</td><td>Books 23–28, Reading Packs 7–9, Study Guide Addendum</td></tr>
+        <tr><td>Module 4 lab pack</td><td>Fri 2 Oct</td><td>Reading Packs 10–12</td></tr>
+        <tr><td>Post-class study materials</td><td>Fri 9 Oct</td><td>8 post-class chapters</td></tr>
       </table>
     </div>
   </div>
@@ -391,13 +476,17 @@
     <h2>What's handed in, and when</h2>
     <div class="table-scroll">
       <table class="data-table">
-        <tr><th>Deliverable</th><th>Set at</th><th>Due</th></tr>
-        <tr><td>Planning Card — Book 16 or 17</td><td>Session 1</td><td>In session</td></tr>
-        <tr><td>Planning Card — Book 5, 8 or 21</td><td>Session 2</td><td>In session</td></tr>
-        <tr><td>Planning Card — Book 15, 9 or 6</td><td>Session 3</td><td>In session</td></tr>
-        <tr><td>Workpaper Lab 1 — Book 17</td><td>Session 4</td><td>Before Session 5</td></tr>
-        <tr><td>Workpaper Lab 2 — Book 2</td><td>Session 5</td><td>Before Session 6</td></tr>
-        <tr><td>Workpaper Lab 3 — Book 3</td><td>Session 6</td><td>Within one week</td></tr>
+        <tr><th>Deliverable</th><th>Book / Module</th><th>Due</th></tr>
+        <tr><td>Planning Card 1</td><td>Module 1</td><td>In session, Mon 14 Sep</td></tr>
+        <tr><td>Planning Card 2</td><td>Module 2</td><td>In session, Wed 16 Sep</td></tr>
+        <tr><td>Planning Card 3</td><td>Module 3</td><td>In session, Fri 18 Sep</td></tr>
+        <tr><td>Planning Card 4</td><td>Module 4a</td><td>In session, Mon 28 Sep</td></tr>
+        <tr><td>Planning Card 5</td><td>Module 4b</td><td>In session, Wed 30 Sep</td></tr>
+        <tr><td>Planning Card 6</td><td>Module 4c</td><td>In session, Fri 2 Oct</td></tr>
+        <tr><td>Workpaper 1</td><td>Book 17 — The Leaver</td><td>Before Wed 23 Sep</td></tr>
+        <tr><td>Workpaper 2</td><td>Book 2 — The Emergency Change</td><td>Before Fri 25 Sep</td></tr>
+        <tr><td>Workpaper 3</td><td>Book 3 — The Approval Limit</td><td>By Fri 2 Oct</td></tr>
+        <tr><td>Workpaper 4</td><td>Book 24 — The Match That Wasn't</td><td>By Fri 16 Oct</td></tr>
       </table>
     </div>
     <p class="section-lede" style="margin-top:14px; margin-bottom:0;">Reviewer notes come back within a week of receipt, every time.</p>
@@ -430,13 +519,14 @@
       <table class="data-table">
         <tr><th></th><th>Weekday Track</th><th>Weekend Track</th></tr>
         <tr><td>Weekly rhythm</td><td>Monday / Wednesday / Friday — 2 hours each</td><td>Saturday / Sunday — 3 hours each</td></tr>
-        <tr><td>Sessions</td><td>8 live sessions, Weeks 1–4</td><td>6 live sessions, Weeks 1–4</td></tr>
+        <tr><td>Sessions</td><td>14 live sessions, Weeks 1–6</td><td>10 live sessions, Weeks 1–6</td></tr>
         <tr><td>Workpapers due</td><td>Before the next session</td><td>Before the next session</td></tr>
       </table>
     </div>
     <p class="section-lede" style="margin-top:14px; margin-bottom:0;">Everything else — the case, the labs, the workpapers, the certificate, the price — is identical between tracks.</p>
   </div>
 </section>
+
 
 <section class="foot-cta">
   <div class="wrap">
