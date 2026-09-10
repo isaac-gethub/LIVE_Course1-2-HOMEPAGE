@@ -1081,6 +1081,11 @@
     if(e.key === 'Escape') closeReserveModal();
   });
 
+  const STRIPE_LINKS = {
+    weekday_950: 'https://buy.stripe.com/test_5kQ00l9iR0T12Afdfa1Nu00',
+    weekend_950: 'https://buy.stripe.com/test_28EdRb3Yx9pxeiXa2Y1Nu01',
+  };
+
   async function submitReserveForm(e){
     e.preventDefault();
     const btn = document.getElementById('reserve-submit-btn');
@@ -1106,8 +1111,13 @@
       });
       if(error) throw error;
 
-      document.getElementById('reserve-form-state').style.display = 'none';
-      document.getElementById('reserve-success-state').style.display = 'block';
+      // Redirect to Stripe checkout for the selected tier
+      const stripeUrl = STRIPE_LINKS[currentTier];
+      if(stripeUrl) {
+        window.location.href = stripeUrl;
+      } else {
+        throw new Error('Stripe link not found');
+      }
     } catch(err){
       errBox.textContent = "Something went wrong sending your request — please try again, or email academy@tib-systems.com directly.";
       errBox.style.display = 'block';
