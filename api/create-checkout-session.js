@@ -3,6 +3,12 @@ const Stripe = require('stripe');
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const VALID_TRACKS = new Set(['weekday_950', 'weekend_950']);
 
+// Map track to Stripe Price ID
+const PRICE_IDS = {
+  weekday_950: process.env.STRIPE_PRICE_ID_WEEKDAY,
+  weekend_950: process.env.STRIPE_PRICE_ID_WEEKEND,
+};
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -18,6 +24,13 @@ module.exports = async (req, res) => {
 
     const track = VALID_TRACKS.has(tier) ? tier : 'weekday_950';
     const trackLabel = track === 'weekend_950' ? 'Weekend Track (Sat/Sun)' : 'Weekday Track (Mon/Wed/Fri)';
+    const priceId = PRICE_IDS[track];
+
+    if (!priceId) {
+      console.error(`Price ID not configured for track: ${track}`);
+      return res.status(500).json({ error: 'Pricing configuration error. Please contact support.' });
+    }
+
     const origin = req.headers.origin || `https://${req.headers.host}`;
 
     const session = await stripe.checkout.sessions.create({
@@ -27,7 +40,7 @@ module.exports = async (req, res) => {
       submit_type: 'book',
       line_items: [
         {
-          price: process.env.STRIPE_PRICE_ID_FULL_SWEEP,
+          price: priceId,  // Use the correct price ID based on track
           quantity: 1,
         },
       ],
