@@ -1111,14 +1111,18 @@
       });
       if(error) throw error;
 
-      // Redirect to Stripe checkout for the selected tier
+      // Immediately redirect to Stripe checkout for the selected tier (no delay)
       const stripeUrl = STRIPE_LINKS[currentTier];
       if(stripeUrl) {
-        window.location.href = stripeUrl;
+        // Redirect immediately after successful Supabase save
+        setTimeout(() => {
+          window.location.href = stripeUrl;
+        }, 500);
       } else {
-        throw new Error('Stripe link not found');
+        throw new Error('Stripe link not found for tier: ' + currentTier);
       }
     } catch(err){
+      console.error('Form error:', err);
       errBox.textContent = "Something went wrong sending your request — please try again, or email academy@tib-systems.com directly.";
       errBox.style.display = 'block';
       btn.disabled = false;
