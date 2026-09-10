@@ -69,11 +69,12 @@
   }
 
   /* Page header */
-  .pagehead{background:var(--ink); color:var(--paper); padding:34px 0 36px;}
-  .breadcrumb{font-family:var(--mono); font-size:0.72rem; color:#C99E82; text-decoration:none; display:inline-block; margin-bottom:14px;}
+  .pagehead{background:var(--ink); color:var(--paper); padding:16px 0 18px;}
+  .breadcrumb{font-family:var(--mono); font-size:0.72rem; color:#C99E82; text-decoration:none; display:inline-block; margin-bottom:8px;}
   .breadcrumb:hover{color:var(--paper);}
-  .pagehead h1{font-family:var(--serif); font-weight:600; font-size:clamp(1.7rem, 5vw, 2.5rem); line-height:1.15; max-width:20ch; margin-bottom:12px;}
-  .pagehead p{color:var(--ink-muted); font-size:1rem; max-width:64ch;}
+  .pagehead h1{font-family:var(--serif); font-weight:600; font-size:clamp(1.3rem, 3.5vw, 1.8rem); line-height:1.15; max-width:30ch; margin-bottom:6px;}
+  .pagehead p{color:var(--ink-muted); font-size:0.86rem; max-width:70ch;}
+  .pagehead .tz-inline{color:#C9A98C; font-size:0.78rem; margin-top:6px; max-width:70ch;}
 
   section{padding:44px 0;}
   section.dim{background:var(--paper-dim);}
@@ -88,7 +89,7 @@
   /* Timezone callout */
   .tz-note{
     background:var(--paper); border:1px solid var(--rule); border-left:3px solid var(--stamp);
-    padding:16px 20px; font-size:0.9rem; color:var(--paper-muted); max-width:760px; margin-bottom:8px;
+    padding:10px 14px; font-size:0.8rem; color:var(--paper-muted); max-width:760px; margin-bottom:0;
   }
   .tz-note strong{color:var(--charcoal);}
 
@@ -176,22 +177,11 @@
   <div class="wrap">
     <a href="index.html" class="breadcrumb">← Back to The Full Sweep</a>
     <h1>Class Calendar &amp; Schedule</h1>
-    <p>Every meeting time, every session, every reading assignment and deliverable for <strong>The Full Sweep</strong> — TIB Systems' SAP SOX/ITGC controls course — laid out in one place, in US Eastern Time.</p>
+    <p>Every session, reading assignment and deliverable for <strong>The Full Sweep</strong>, in US Eastern Time.</p>
   </div>
 </div>
 
-<section>
-  <div class="wrap">
-    <span class="kicker">Time zone</span>
-    <h2>All times below are US Eastern Time</h2>
-    <p class="section-lede">Every time on this page is shown in US Eastern Time (ET). If you're joining from outside the US, convert to your local time before each session.</p>
-    <div class="tz-note">
-      <strong>Daylight Saving note:</strong> Times below are standard time (EST, UTC−5). During US Daylight Saving Time (mid-March to early November), Eastern clocks move to EDT (UTC−4) and run 1 hour later than shown.
-    </div>
-  </div>
-</section>
-
-<section class="dim">
+<section class="dim" style="padding-top:28px; padding-bottom:28px;">
   <div class="wrap">
     <span class="kicker">Weekly meeting times</span>
     <h2>What time to show up, by track</h2>
@@ -225,6 +215,9 @@
           <span class="time"><span class="et">12:00 – 3:00 PM ET</span></span>
         </div>
       </div>
+    </div>
+    <div class="tz-note" style="margin-top:14px;">
+      <strong>All times above are US Eastern (EDT, UTC−4)</strong> — convert to your local time if joining from outside the US. This cohort runs entirely before the Nov 2026 US/UK clock change, so no DST adjustment applies mid-course.
     </div>
   </div>
 </section>
