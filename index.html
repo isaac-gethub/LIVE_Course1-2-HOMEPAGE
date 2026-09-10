@@ -1046,8 +1046,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
-  // ---------- Reserve-a-seat modal (writes to the shared brochure_leads table,
-  // tagged source='full_sweep' + tier, distinct from the Brochure App's source='brochure') ----------
+  // ---------- Reserve-a-seat modal ----------
   const SUPABASE_URL = 'https://blfgwysgekfqhcafofhe.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsZmd3eXNnZWtmcWhjYWZvZmhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyODY0NDksImV4cCI6MjA5NTg2MjQ0OX0.HPdIMd-X30QBufoL9BVSVte6s_Fc-OOKIq9MbwLrzcI';
   const reserveClient = (function(){
@@ -1081,11 +1080,6 @@
     if(e.key === 'Escape') closeReserveModal();
   });
 
-  const STRIPE_LINKS = {
-    weekday_950: 'https://buy.stripe.com/test_5kQ00l9iR0T12Afdfa1Nu00',
-    weekend_950: 'https://buy.stripe.com/test_28EdRb3Yx9pxeiXa2Y1Nu01',
-  };
-
   async function submitReserveForm(e){
     e.preventDefault();
     const btn = document.getElementById('reserve-submit-btn');
@@ -1101,7 +1095,9 @@
 
     try {
       if (!reserveClient) throw new Error('Booking service unavailable');
-      const { error } = await reserveClient.from('brochure_leads').insert({
+      
+      // Save to brochure_leads first
+      const { error: dbError } = await reserveClient.from('brochure_leads').insert({
         full_name,
         email,
         phone,
@@ -1109,21 +1105,32 @@
         source: 'full_sweep',
         tier: currentTier,
       });
-      if(error) throw error;
+      if(dbError) throw dbError;
 
-      // Immediately redirect to Stripe checkout for the selected tier (no delay)
-      const stripeUrl = STRIPE_LINKS[currentTier];
-      if(stripeUrl) {
-        // Redirect immediately after successful Supabase save
-        setTimeout(() => {
-          window.location.href = stripeUrl;
-        }, 500);
-      } else {
-        throw new Error('Stripe link not found for tier: ' + currentTier);
+      // NOW call your create-checkout endpoint with the tier and all user data
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          full_name,
+          email,
+          phone,
+          country,
+          tier: currentTier,
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to create checkout session');
       }
+
+      const { url } = await response.json();
+      // Redirect to dynamically-created Stripe session (now with metadata)
+      window.location.href = url;
     } catch(err){
       console.error('Form error:', err);
-      errBox.textContent = "Something went wrong sending your request — please try again, or email academy@tib-systems.com directly.";
+      errBox.textContent = err.message || "Something went wrong — please try again, or email academy@tib-systems.com directly.";
       errBox.style.display = 'block';
       btn.disabled = false;
       btn.textContent = 'Request my seat →';
